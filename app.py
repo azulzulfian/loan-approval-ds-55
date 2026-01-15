@@ -82,9 +82,14 @@ def predict(gender, married, dependent, education, self_employed, applicant_inco
                                                       coApplicant_income,loan_amount,loan_amount_term,
                                                       credit_history,pro]])
     result = "Not Eligible" if prediction == 0 else "Eligible"
-    return result
+         if result == 'Eligible':
+    st.success("Loan Approved ✅")
+        else:
+    st.error("Loan Not Approved ❌")
+
 
 
 
 if __name__ == "__main__":
+
     main()
