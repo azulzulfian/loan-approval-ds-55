@@ -66,8 +66,9 @@ def run_ml_app():
         else:
             st.success(f"You are{result} for the loan")
 
-def predict(gender, married, dependent, education, self_employed, applicant_income, coApplicant_income
-                         ,loan_amount, loan_amount_term, credit_history, property_area):
+def predict(gender, married, dependent, education, self_employed,
+            applicant_income, coApplicant_income,
+            loan_amount, loan_amount_term, credit_history, property_area):
     
     #Preprocessing User Input
     gen = 0 if gender == "Male" else 1
@@ -78,14 +79,22 @@ def predict(gender, married, dependent, education, self_employed, applicant_inco
     
     
     #Making prediction
-    prediction == Logistic_Regression_Model.predict([[gen,mar,dependent,edu,sem,applicant_income,
-                                                      coApplicant_income,loan_amount,loan_amount_term,
-                                                      credit_history,pro]])
-    result = "Not Eligible" if prediction == 0 else "Eligible"
-         if result == 'Eligible':
+prediction = Logistic_Regression_Model.predict([[
+    gen, mar, dependent, edu, sem,
+    applicant_income, coApplicant_income,
+    loan_amount, loan_amount_term,
+    credit_history, pro
+]])
+
+    result = "Not Eligible" if prediction[0] == 0 else "Eligible"
+
+if result == "Eligible":
     st.success("Loan Approved ✅")
-        else:
+else:
     st.error("Loan Not Approved ❌")
+
+return result
+
 
 
 
@@ -93,3 +102,4 @@ def predict(gender, married, dependent, education, self_employed, applicant_inco
 if __name__ == "__main__":
 
     main()
+
