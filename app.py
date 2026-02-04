@@ -18,7 +18,7 @@ This app is used by Credit team for deciding Loan Application
 #### Data Source
 Kaggle: Link <Masukkan Link>
 
-the content of this data:
+#### the content of this data:
 <ul>
     <li>Gender: The gender of borrower</li>
     <li>Married: Status of Marriage of borrower</li>
@@ -97,3 +97,4 @@ def predict(gender, married, dependent, education, self_employed,
 
 if __name__ == "__main__":
     main()
+
